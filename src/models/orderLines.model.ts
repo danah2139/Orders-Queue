@@ -8,6 +8,10 @@ import {
 } from "sequelize-typescript";
 import { Order } from "./order.model";
 
+/**
+ * Represents the order lines in the database.
+ */
+
 @Table
 export class OrderLines extends Model<OrderLines> {
   @PrimaryKey

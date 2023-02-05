@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Response } from "express";
 import { routes } from "./routes";
 import { createConsumer } from "./services/consumer";
 import { OrderQueue } from "./services/OrderQueue";
@@ -23,14 +23,10 @@ sequelizeConnection.sync().then(() => {
 
 app.set("view engine", "pug");
 
-app.get("/", async (req, res) => {
+app.get("/", async (req: express.Request, res: Response) => {
   const results = await sequelizeConnection.query(
     "SELECT * FROM Orders as o join OrderLines ol on o.retailer_id = ol.variant_id"
   );
-
-  console.log(results);
-
-  // Assuming `fields` contains the data you wish to use in your template
   res.render("index.pug", { results });
 });
 

@@ -4,7 +4,12 @@ import { OrderLines } from "../models/orderLines.model";
 import { Order } from "../models/order.model";
 
 export const createConsumer = async () => {
-  // const orderQueue = await OrderQueue.build();
+  /**
+   * Creates a consumer to receive data from a message queue.
+   *
+   * @return {void}
+   */
+
   OrderQueue.Instance.receivedData();
 
   EventEmitterService.Instance.getEventBroker().on("on-msg", async (data) => {

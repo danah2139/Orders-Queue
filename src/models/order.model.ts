@@ -1,5 +1,9 @@
 import { Table, Model, Column, PrimaryKey } from "sequelize-typescript";
 
+/**
+ *  Represents an order in the database.
+ */
+
 @Table
 export class Order extends Model<Order> {
   @PrimaryKey
